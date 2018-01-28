@@ -43,11 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Joker joker = new Joker();
-
-        Intent intentJokeDisplayActivity = new Intent(this, JokeDisplayActivity.class);
-        intentJokeDisplayActivity.putExtra(JokeDisplayActivity.EXTRA_DATA, joker.tellJoke());
-        startActivity(intentJokeDisplayActivity);
+        new EndpointsAsyncTask().execute(this);
     }
 
 

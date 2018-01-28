@@ -6,6 +6,8 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import name.juhasz.judit.udacity.jokefactory.Joker;
+
 /** An endpoint class we are exposing */
 @Api(
         name = "myApi",
@@ -24,6 +26,14 @@ public class MyEndpoint {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
 
+        return response;
+    }
+
+    @ApiMethod(name = "tellJoke")
+    public MyBean tellJoke(){
+        MyBean response = new MyBean();
+        Joker joker = new Joker();
+        response.setData(joker.tellJoke());
         return response;
     }
 
